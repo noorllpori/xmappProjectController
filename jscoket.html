@@ -1,0 +1,16 @@
+<script src="socketio.js"></script>
+10.0.1.111
+<script>
+    //const WebSocket = require('ws');
+    
+    const ws = new WebSocket('ws://10.0.1.111:48200');
+    
+    ws.on('open', function open() {
+        ws.send('你好服务器');
+        console.log('我已经向服务端发送完数据');
+    });//在连接创建完成后发送一条信息
+    
+    ws.on('message', function incoming(data) {
+        console.log('服务器发来的数据',data.toString());
+    });//当收到消息时，在控制台打印出来
+</script>
